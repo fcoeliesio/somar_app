@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/routes.dart';
+import 'package:flutter_app/widgets/custom_logo.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -15,12 +17,21 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
 
     Future.delayed(
-      Duration(microseconds: 300),
+      Duration(seconds: 2),
       (){
         setState(() {
           textoAnimated = true;
         });
       }
+
+
+    );
+
+    Future.delayed(
+      const Duration(seconds: 2),
+      (){
+        Navigator.of(context).pushReplacementNamed(Routes.login);
+      },
     );
   }
 
@@ -30,19 +41,11 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: Color.fromRGBO(86, 161, 226, 1),
       body: Stack( children: [
       AnimatedPositioned(
-        duration: const Duration(seconds: 1),
-        top: textoAnimated ? 200: 50,
-        left: textoAnimated ? 0 : 0,
-      child: Image.asset('assets/logo.png')
+        duration: const Duration(seconds: 4),
+        top: textoAnimated ? 300: 50,
+        left: textoAnimated ? 120 : 0,
+      child: const CustomLogo()
       ),
-      Positioned(
-        bottom: 200,
-        left: 12,
-        child: Text('Você é fraco, lhe falta brio!', style: TextStyle(
-          fontSize: 20, color: Colors.white,
-        ),
-        ),
-        ),
     ],
     ),
       );

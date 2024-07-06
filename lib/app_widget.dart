@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/login/login_page.dart';
 import 'package:flutter_app/pages/splash/splash_page.dart';
 import 'package:flutter_app/routes.dart';
 
@@ -13,9 +14,10 @@ class AppWidget extends StatelessWidget{
         primarySwatch: Colors.amber,
       ),
       routes: {
-        Routes.INITIAL: (context) => const SplashPage(),
+        Routes.initial: (context) => const SplashPage(),
+        Routes.login: (context) => const LoginPage(),
       },
-      initialRoute: '/',
+      initialRoute: Routes.initial,
     );
   }
 }

@@ -13,6 +13,11 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController textUsuario = TextEditingController();
   final TextEditingController password = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  bool buttonClick = false;
+  void _login(){
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,29 +25,37 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.grey.shade100,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
-        child: Column(
-          children: [
-            Positioned(child:
-            CustomLogo(
-            ),
-            ),
-            const SizedBox(height: 30),
-            CustomEdit(
-              controller: textUsuario,
-              hintText: 'Informe o seu E-mail',
-              icon: Icons.person,
-            ),
-            const SizedBox(height: 40),
-            CustomEdit(
-              controller: password, 
-              hintText: 'Informe a sua senha', 
-              icon: Icons.password,
-              isPassword: true,),
-            const SizedBox(height: 40),
-            CustomButton(
-              caption: 'Entrar', 
-              onTap: (){},)
-          ],
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Positioned(child:
+              CustomLogo(
+              ),
+              ),
+              const SizedBox(height: 30),
+              CustomEdit(
+                controller: textUsuario,
+                hintText: 'Informe o seu E-mail',
+                icon: Icons.person,
+                validator: (value){return '';},
+              ),
+              const SizedBox(height: 40),
+              CustomEdit(
+                controller: password, 
+                hintText: 'Informe a sua senha', 
+                icon: Icons.password,
+                isPassword: true,
+                validator: (value){return '';},
+                ),
+              const SizedBox(height: 40),
+              CustomButton(
+                caption: 'Entrar', 
+                onTap: _login,
+                loading: buttonClick,
+              ),
+            ],
+          ),
         ),
       ),
     );

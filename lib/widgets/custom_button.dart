@@ -26,9 +26,15 @@ class CustomButton extends StatelessWidget {
                   ),
                   height: 60, 
                   child: Center(
-                    child: Text(caption, style: const TextStyle(
+                    child: loading 
+                    ? const CircularProgressIndicator(
+                      color: Colors.white,
+                    )
+                    : Text(
+                      caption, style: const TextStyle(
                       fontSize: 20,color: Colors.white,
-                    ),),
+                    ),
+                    ),
                   ),
                 ),
               ),

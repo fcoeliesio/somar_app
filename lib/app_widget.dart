@@ -9,7 +9,7 @@ class AppWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Lembretes',
+      title: 'Somar Mercantil',
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),

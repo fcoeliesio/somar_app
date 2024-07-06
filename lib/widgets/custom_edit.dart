@@ -6,12 +6,15 @@ class CustomEdit extends StatelessWidget {
   final IconData icon;
   final bool isPassword;
   final String password;
+  final FormFieldValidator<String>? validator;
+
 
   const CustomEdit({
     super.key, 
     required this.controller,
     required this.hintText,
     required this.icon,
+    required this.validator,
     this.isPassword = false,
     this.password = '',
   });
@@ -21,6 +24,7 @@ class CustomEdit extends StatelessWidget {
     return TextFormField(
             controller: controller,
             obscureText: isPassword,
+            validator: validator,
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: const TextStyle(
